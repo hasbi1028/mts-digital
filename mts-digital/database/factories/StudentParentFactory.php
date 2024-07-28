@@ -56,10 +56,7 @@ class StudentParentFactory extends Factory
             'no_kks' => $this->faker->numerify('###########'),
             'img_kks' => $this->faker->imageUrl,
             'no_pkh' => $this->faker->numerify('###########'),
-            'img_pkh' => $this->faker->imageUrl,
-            'no_kip' => $this->faker->numerify('###########'),
-            'img_kip' => $this->faker->imageUrl,
-            'no_kks_ibu' => $this->faker->numerify('###########'),
+            'img_pkh' => $this->faker->imageUrl
         ];
     }
 }

@@ -9,8 +9,6 @@ class StudentParent extends Model
 {
     use HasFactory;
 
-    protected $table = 'student_parents';
-
     protected $fillable = [
         'student_id',
         'fullname_ayah',
@@ -54,10 +52,4 @@ class StudentParent extends Model
         'no_pkh',
         'img_pkh'
     ];
-
-    // Definisi relasi dengan model Student
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
 }
