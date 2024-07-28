@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('student_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->string('img_siswa')->nullable();
             $table->string('nisn')->nullable();
             $table->boolean('wni')->nullable();
             $table->string('tempat_lahir')->nullable();
@@ -40,6 +41,8 @@ return new class extends Migration
             $table->string('no_kip')->nullable();
             $table->string('no_kk')->nullable();
             $table->string('kepala_keluarga')->nullable();
+            $table->string('img_kk')->nullable();
+            $table->string('img_kip')->nullable();
             $table->timestamps();
         });
     }
