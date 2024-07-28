@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserContoller;
 
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentDetailController;
+use App\Http\Controllers\StudentAddressController;
+use App\Http\Controllers\StudentParentController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,4 +29,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user',[UserContoller::class,'index']);
+    Route::apiResource('students', StudentController::class);
+    Route::apiResource('student-details', StudentDetailController::class);
+    Route::apiResource('student-addresses', StudentAddressController::class);
+    Route::apiResource('student-parents', StudentParentController::class);
 });
