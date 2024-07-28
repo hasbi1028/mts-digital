@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('student_parents', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->string('fullname_ayah')->nullable();
             $table->enum('status_ayah',['masih hidup','sudah meninggal','tidak diketahui'])->nullable();
             $table->boolean('wni_ayah')->nullable();
