@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('kecamatan_ayah')->nullable();
             $table->string('keldesa_ayah')->nullable();
             $table->string('rt_ayah')->nullable();
-            $table->string('rt_ayah')->nullable();
+            $table->string('rw_ayah')->nullable();
             $table->string('alamat_ayah')->nullable();
             $table->string('kodepos_ayah')->nullable();
 
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('kecamatan_ibu')->nullable();
             $table->string('keldesa_ibu')->nullable();
             $table->string('rt_ibu')->nullable();
-            $table->string('rt_ibu')->nullable();
+            $table->string('rw_ibu')->nullable();
             $table->string('alamat_ibu')->nullable();
             $table->string('kodepos_ibu')->nullable();
 
@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('kecamatan_wali')->nullable();
             $table->string('keldesa_wali')->nullable();
             $table->string('rt_wali')->nullable();
-            $table->string('rt_wali')->nullable();
+            $table->string('rw_wali')->nullable();
             $table->string('alamat_wali')->nullable();
             $table->string('kodepos_wali')->nullable();
 
@@ -50,7 +50,7 @@ return new class extends Migration
             $table->string('kecamatan_siswa')->nullable();
             $table->string('keldesa_siswa')->nullable();
             $table->string('rt_siswa')->nullable();
-            $table->string('rt_siswa')->nullable();
+            $table->string('rw_siswa')->nullable();
             $table->string('alamat_siswa')->nullable();
             $table->string('kodepos_siswa')->nullable();
             

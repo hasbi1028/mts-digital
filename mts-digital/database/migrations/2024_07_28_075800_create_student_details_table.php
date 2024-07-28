@@ -22,12 +22,11 @@ return new class extends Migration
             $table->enum('jk',['lk','pr'])->nullable();
             $table->integer('jml_saudara')->nullable();
             $table->integer('anak_ke')->nullable();
-            $table->string('')->nullable();
             $table->enum('agama',['islam','kristen','katolik','hindu','buddha','kong hu cu'])->nullable();
             $table->enum('cita_cita',['PNS','TNI/Polri','Guru/Dosen','Dokter','Politikus','Wiraswasta','Seniman/Artis','Ilmuwan','Agamawan','Lainnya'])->nullable();
             $table->boolean('memiliki_hp')->nullable();
             $table->string('no_hp')->nullable();    
-            $table->string('email')->nullable()->unique;
+            $table->string('email')->nullable()->unique();
             $table->enum('hobi',['Olahraga','Kesenian','Membaca','Menulis','Jalan-jalan','Lainnya'])->nullable();        
             $table->enum('yg_membiayai',['Orang Tua','Wali/Orang Tua Asuh','Tanggungan Sendiri','Lainnya'])->nullable();
             $table->boolean('tk_ra')->nullable();
