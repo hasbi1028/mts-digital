@@ -12,6 +12,45 @@ use Carbon\Carbon;
 class AuthController extends Controller
 {
     /**
+     * Handle user registration
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        // Validasi input dari request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Buat user baru
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // Ambil durasi expiration dari konfigurasi Sanctum
+        $expirationMinutes = config('sanctum.expiration');
+
+        // Buat token baru dengan waktu kedaluwarsa
+        $token = $user->createToken('auth_token', ['*'], Carbon::now()->addMinutes($expirationMinutes));
+
+        // Siapkan response
+        return response()->json([
+            'access_token' => $token->plainTextToken,
+            'token_type' => 'Bearer',
+            'expires_at' => Carbon::parse($token->accessToken->created_at)
+                                  ->addMinutes($expirationMinutes)
+                                  ->toDateTimeString(),
+            'user' => new UserResource($user), // Gunakan UserResource untuk memformat data user
+        ]);
+    }
+
+    /**
      * Handle user login
      *
      * @param Request $request
