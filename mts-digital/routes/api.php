@@ -25,12 +25,14 @@ use App\Http\Controllers\StudentParentController;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
+
 // Protected routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user',[UserContoller::class,'index']);
     Route::apiResource('students', StudentController::class);
-    Route::apiResource('student-details', StudentDetailController::class);
-    Route::apiResource('student-addresses', StudentAddressController::class);
-    Route::apiResource('student-parents', StudentParentController::class);
+Route::apiResource('student-details', StudentDetailController::class);
+Route::apiResource('student-addresses', StudentAddressController::class);
+Route::apiResource('student-parents', StudentParentController::class);
+    
 });

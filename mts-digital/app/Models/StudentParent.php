@@ -52,4 +52,10 @@ class StudentParent extends Model
         'no_pkh',
         'img_pkh'
     ];
+
+    // Definisi relasi dengan model Student
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('student_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            // $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->unsignedBigInteger('student_id')->unique();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->enum('status_rumah_ayah',['Milik Sendiri','Rumah Orang Tua','Rumah Saudara/Kerabat','Rumah Dinas','Sewa/Kontrak','Lainnya'])->nullable();
             $table->string('provinsi_ayah')->nullable();
             $table->string('kabupaten_ayah')->nullable();

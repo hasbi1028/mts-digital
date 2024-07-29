@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('student_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            // $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->unsignedBigInteger('student_id')->unique();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->string('img_siswa')->nullable();
             $table->string('nisn')->nullable();
             $table->boolean('wni')->nullable();
