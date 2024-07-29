@@ -33,4 +33,10 @@ class Student extends Model
     {
         return $this->hasOne(StudentParent::class);
     }
+
+    // Definisi relasi dengan model RiwayatPendidikanStudent
+    public function riwayatPendidikan()
+    {
+        return $this->hasMany(RiwayatPendidikanStudent::class, 'siswa_id');
+    }
 }
