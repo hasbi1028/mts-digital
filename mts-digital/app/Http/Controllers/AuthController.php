@@ -111,4 +111,3 @@ class AuthController extends Controller
         ]);
     }
 }
-// fitur autorisasi selesai
